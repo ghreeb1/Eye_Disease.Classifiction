@@ -1,7 +1,7 @@
 
 # 👁️ Eye Disease Classification System
 
-![Demo Screenshot](https://raw.githubusercontent.com/ghreeb1/Eye_Disease.Classification/master/upload%20image/1.png)
+![Demo Screenshot](https://raw.githubusercontent.com/ghreeb1/Eye_Disease.Classifiction/master/templates/1.png)
 
 A deep learning application for detecting ocular diseases from retinal images using PyTorch and Flask.
 
