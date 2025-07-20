@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Disease Classifier</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 90vh;
+            padding-top: 30px;
+        }
+        .left {
+            max-width: 50%;
+            margin-right: 20px;
+            text-align: left;
+        }
+        .left h1 {
+            color: gray;
+            font-size: 36px;
+        }
+        .left h1 span {
+            color: orange;
+        }
+        .left p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+        .right {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; /* تباعد متناسق بين العناصر */
+        }
+        .image-preview-container {
+            margin-top: 10px;
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 320px;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .image-preview-container span {
+            color: gray;
+            font-size: 14px;
+        }
+        .image-preview {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .right button {
+            width: 100%;
+            max-width: 320px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .right button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .right .select-button {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            margin-top: 20px; /* مسافة إضافية لأسفل */
+        }
+        .right .select-button:hover {
+            background: linear-gradient(90deg, #5a0fba 0%, #1e62e5 100%);
+        }
+        .right .predict-button {
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+            color: white;
+            margin-top: 20px; /* مسافة إضافية لأسفل */
+        }
+        .right .predict-button:hover {
+            background: linear-gradient(90deg, #3bb98a 0%, #174f89 100%);
+        }
+        .prediction-result {
+            margin-top: 10px;
+            font-size: 16px;
+            color: green;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            padding: 30px;
+            background-color: #222;
+            color: white;
+            font-size: 36px;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+        }
+        .header span {
+            color: #ff8c00;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        EYE Disease <span>Classifiction</span>
+    </div>
+
+    <div class="container">
+        <div class="left">
+            <h1>EYE Disease <span>Classifiction</span></h1>
+            <p>Early ocular disease Classifiction is an economic and effective way to prevent blindness caused by diabetes, glaucoma, cataract, age-related macular degeneration (AMD), and many other diseases.</p>
+        </div>
+        <div class="right">
+            <form id="upload-form" action="/predict" method="POST" enctype="multipart/form-data">
+                <div class="image-preview-container" id="image-preview-container">
+                    <span>No image selected</span>
+                </div>
+                <button type="button" class="select-button" onclick="document.getElementById('file-upload').click();">Select Image</button>
+                <input id="file-upload" type="file" name="file" accept="image/*" onchange="previewImage(event)" style="display: none;">
+                <button type="submit" class="predict-button">Predict</button>
+            </form>
+            <div id="prediction-result" class="prediction-result"></div>
+        </div>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgElement = document.createElement('img');
+                    imgElement.id = 'image-preview';
+                    imgElement.className = 'image-preview';
+                    imgElement.src = e.target.result;
+
+                    const previewContainer = document.getElementById('image-preview-container');
+                    previewContainer.innerHTML = ''; // Clear previous content
+                    previewContainer.appendChild(imgElement);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        document.getElementById("upload-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById("prediction-result");
+                if (data.prediction) {
+                    resultDiv.innerHTML = "Prediction: " + data.prediction;
+                } else if (data.error) {
+                    resultDiv.innerHTML = "Error: " + data.error;
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    </script>
+</body>
+</html>
