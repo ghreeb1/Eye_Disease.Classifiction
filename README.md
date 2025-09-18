@@ -108,14 +108,16 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 📧 Contact
 
 **Developer:**  
-Mohamed Khaled
+<h2 align="center">Mohamed Khaled</h2>
 
-**Email:**  
-qq11gharipqq11@gmail.com
-
-**Project Link:**  
-[https://github.com/ghreeb1/Eye_Disease.Classification](https://github.com/ghreeb1/Eye_Disease.Classification)
-
-**LinkedIn:**  
-[https://linkedin.com/in/mohamed-khaled-3a9021263](https://linkedin.com/in/mohamed-khaled-3a9021263)
-
+<p align="center">
+  <a href="mailto:qq11gharipqq11@gmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/-Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
+  </a>
+  <a href="https://www.linkedin.com/in/mohamed-khaled-3a9021263" target="_blank">
+    <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  </a>
+  <a href="https://github.com/ghreeb1/Eye_Disease.Classification" target="_blank">
+    <img src="https://img.shields.io/badge/-Project%20Link-24292F?style=for-the-badge&logo=github&logoColor=white"/>
+  </a>
+</p>
