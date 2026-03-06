@@ -7,16 +7,16 @@ A deep learning application for detecting ocular diseases from retinal images us
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 🧠 **Multi-disease detection**: Classifies multiple common eye conditions.
-- 🌐 **Web interface**: User-friendly image upload and result display.
-- ⚙️ **Pre-trained model**: Ready-to-use model file `eye_disease_model.pth`.
-- 📓 **Jupyter notebook**: Full training pipeline in `eye_disease.ipynb`.
+- **Multi-disease detection**: Classifies multiple common eye conditions.
+- **Web interface**: User-friendly image upload and result display.
+- **Pre-trained model**: Ready-to-use model file `eye_disease_model.pth`.
+- **Jupyter notebook**: Full training pipeline in `eye_disease.ipynb`.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 Eye_Disease.Classification/
@@ -31,7 +31,7 @@ Eye_Disease.Classification/
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 ```bash
 # Clone the repository
@@ -44,7 +44,7 @@ pip install torch flask pillow numpy
 
 ---
 
-## 🖥️ Usage
+##  Usage
 
 Start the Flask server:
 
@@ -58,7 +58,7 @@ Upload an eye image to get a prediction.
 
 ---
 
-## 🧠 Model Specifications
+##  Model Specifications
 
 | Detail              | Specification                  |
 |---------------------|--------------------------------|
@@ -70,7 +70,7 @@ Upload an eye image to get a prediction.
 
 ---
 
-## 📚 Supported Diseases
+##  Supported Diseases
 
 - Diabetic Retinopathy  
 - Glaucoma  
@@ -80,7 +80,7 @@ Upload an eye image to get a prediction.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the project  
 2. Create your feature branch:  
@@ -99,13 +99,8 @@ Upload an eye image to get a prediction.
 
 ---
 
-## 📜 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-## 📧 Contact
+##  Contact
 
 **Developer:**  
 <h2 align="center">Mohamed Khaled</h2>
